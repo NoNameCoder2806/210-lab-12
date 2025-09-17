@@ -30,11 +30,22 @@ int main()
     // Declare an array to store Student objects data
     array<Student, ARRAY_SIZE> studentArray;
 
+    // Check whether the current array is empty
+    cout << " - Empty?: ";
+    if (studentArray.empty())
+    {
+        cout << "True!" << endl;
+    }
+    else
+    {
+        cout << "False!" << endl;
+    }
+
     // Read the data from the file
     fileInput(studentArray, "data.txt");
 
     // Print the current size
-    cout << "Array size: " << studentArray.size() << endl;
+    cout << " - Array size: " << studentArray.size() << endl;
     
     // Display all the Student objects in the array
     displayHeader();
@@ -139,6 +150,7 @@ void displayHeader()
 */
 void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
 {
+    // Iterate through the array
     for (int i = 0; i < ARRAY_SIZE; i++)
     {
         // Display the fields
@@ -148,4 +160,7 @@ void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
         // Enter a new line
         cout << endl;
     }
+
+    // Enter a new line
+    cout << endl;
 }
