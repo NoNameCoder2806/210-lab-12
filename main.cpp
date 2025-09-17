@@ -18,6 +18,8 @@ const int GPA_FIELD = 5;
 // Function prototypes
 void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path, int& count);
 
+void displayHeader();
+
 void displayArray(const array<Student, ARRAY_SIZE>& studentArray, const int count);
 
 // Main
@@ -29,7 +31,7 @@ int main()
 
     // Read the data from the 2 files
     fileInput(studentArray, "data1.txt", count);
-    fileInput(studentArray, "data2.txt", count);
+    //fileInput(studentArray, "data2.txt", count);
 
     // Print the current size
     cout << "Current size: " << count << endl;
@@ -105,7 +107,7 @@ void displayHeader()
 {
     // Display a header
     cout << left << setw(NAME_FIELD) << "Student Name";
-    cout << left << setw(GPA_FIELD) << "Student GPA";
+    cout << left << setw(GPA_FIELD) << "GPA";
     cout << endl;
 
     // Display a separator
