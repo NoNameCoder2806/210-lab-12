@@ -33,5 +33,33 @@ int main()
 */
 void fileInput(string path)
 {
-    
+    // Create a file stream and read the file
+    ifstream fin;
+    fin.open(path);
+
+    // Declare a string variable to store the line
+    string line;
+
+    // Iterate through the file and read the data line by line
+    while (getline(fin, line))
+    {
+        // Declare 2 variables to store the name and gpa
+        string name;
+        double gpa;
+
+        // Iterate through the string
+        for (int i = 0; i < line.size(); i++)
+        {
+            // If the current character is a number
+            if (line.at(i) >= '0' && line.at(i) <= '9')
+            {
+                // Save the name and gpa
+                name = line.substr(0, i - 1);
+                gpa = stod(line.substr(i));
+
+                // Break out of the line loop
+                break;
+            }
+        }
+    }
 }
