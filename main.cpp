@@ -35,6 +35,7 @@ int main()
     cout << "Current size: " << count << endl;
     
     // Display all the Student objects in the array
+    displayHeader();
     displayArray(studentArray, count);
 
     return 0;
@@ -95,9 +96,28 @@ void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path, int& count
 }
 
 /*
+    displayHeader()
+    Display a header for the data console display
+    Arguments: none
+    Returns: none
+*/
+void displayHeader()
+{
+    // Display a header
+    cout << left << setw(NAME_FIELD) << "Student Name";
+    cout << left << setw(GPA_FIELD) << "Student GPA";
+    cout << endl;
+
+    // Display a separator
+    cout << string(NAME_FIELD + GPA_FIELD, '=') << endl;
+}
+
+/*
     displayArray()
     Display the data of the Student objects in the array
-    Arguments: an array 
+    Arguments:
+        - studentArray: const reference to the std::array<Student, ARRAY_SIZE> containing students
+        - count: number of students currently in the array
     Returns: none
 */
 void displayArray(const array<Student, ARRAY_SIZE>& studentArray, const int count)

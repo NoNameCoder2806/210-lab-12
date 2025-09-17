@@ -3,6 +3,9 @@
         "*.embeddedhtml": "html",
         "array": "cpp",
         "xstring": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "xlocale": "cpp",
+        "xlocmon": "cpp",
+        "iostream": "cpp"
     }
 }
