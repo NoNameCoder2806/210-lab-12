@@ -30,6 +30,8 @@ bool desCompareGPA(const Student& student1, const Student& student2);
 
 void sortGPA(array<Student, ARRAY_SIZE>& studentArray);
 
+double addGPA(double sum, const Student& student);
+
 // Main
 int main()
 {
@@ -77,15 +79,15 @@ int main()
 
     // Display a message
     cout << "Sorted Array: " << endl;
-    
+
     // Display the sorted array
     displayHeader();
     displayArray(studentArray);
 
-    // Find the min, max, and average of the GPA
+    // Find the min, max, and average GPA score of the Student objects
     cout << " - Highest GPA: " << max_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
     cout << " - Lowest GPA: " << min_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
-    //cout << " - Sum: " << accumulate(studentArray.begin(), studentArray.end(), 0) << endl;
+    cout << " - Average GPA: " << accumulate(studentArray.begin(), studentArray.end(), 0.0, addGPA) / studentArray.size() << endl;
 
     return 0;
 }
@@ -230,4 +232,17 @@ void sortGPA(array<Student, ARRAY_SIZE>& studentArray)
 {
     // Use the sort() function to sort the array
     sort(studentArray.begin(), studentArray.end(), desCompareGPA);
+}
+
+/*
+    addGPA()
+    Helper function for accumulate: adds a Student's GPA to the running sum
+    Arguments:
+        - sum: the current accumulated GPA total
+        - student: const reference to a Student object
+    Returns: the new sum after adding the student's GPA
+*/
+double addGPA(double sum, const Student& student)
+{
+    return sum + student.gpa;
 }
