@@ -24,7 +24,9 @@ void displayHeader();
 
 void displayArray(const array<Student, ARRAY_SIZE>& studentArray);
 
-bool compareGPA(const Student& student1, const Student& student2);
+bool ascCompareGPA(const Student& student1, const Student& student2);
+
+bool desCompareGPA(const Student& student1, const Student& student2);
 
 void sortGPA(array<Student, ARRAY_SIZE>& studentArray);
 
@@ -73,9 +75,17 @@ int main()
     // Sort the array by gpa
     sortGPA(studentArray);
 
+    // Display a message
+    cout << "Sorted Array: " << endl;
+    
     // Display the sorted array
     displayHeader();
     displayArray(studentArray);
+
+    // Find the min, max, and average of the GPA
+    cout << " - Highest GPA: " << max_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
+    cout << " - Lowest GPA: " << min_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
+    //cout << " - Sum: " << accumulate(studentArray.begin(), studentArray.end(), 0) << endl;
 
     return 0;
 }
@@ -180,7 +190,22 @@ void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
 }
 
 /*
-    compareGPA()
+    ascCompareGPA()
+    Compare the GPA of two Student objects.
+    Arguments:
+        - student1: const reference to a Student
+        - student2: const reference to a Student
+    Returns:
+        - true if student1's GPA is less than student2's GPA (for descending order)
+        - false otherwise
+*/
+bool ascCompareGPA(const Student& student1, const Student& student2)
+{
+    return student1.gpa < student2.gpa;    // Ascending order
+}
+
+/*
+    desCompareGPA()
     Compare the GPA of two Student objects.
     Arguments:
         - student1: const reference to a Student
@@ -189,7 +214,7 @@ void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
         - true if student1's GPA is greater than student2's GPA (for descending order)
         - false otherwise
 */
-bool compareGPA(const Student& student1, const Student& student2)
+bool desCompareGPA(const Student& student1, const Student& student2)
 {
     return student1.gpa > student2.gpa;    // Descending order
 }
@@ -204,5 +229,5 @@ bool compareGPA(const Student& student1, const Student& student2)
 void sortGPA(array<Student, ARRAY_SIZE>& studentArray)
 {
     // Use the sort() function to sort the array
-    sort(studentArray.begin(), studentArray.end(), compareGPA);
+    sort(studentArray.begin(), studentArray.end(), desCompareGPA);
 }
