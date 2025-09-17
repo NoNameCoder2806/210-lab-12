@@ -11,34 +11,32 @@
 using namespace std;
 
 // Constants
-const int ARRAY_SIZE = 100;
+const int ARRAY_SIZE = 50;
 const int NAME_FIELD = 30;
 const int GPA_FIELD = 5;
 
 // Function prototypes
-void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path, int& count);
+void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path);
 
 void displayHeader();
 
-void displayArray(const array<Student, ARRAY_SIZE>& studentArray, const int count);
+void displayArray(const array<Student, ARRAY_SIZE>& studentArray);
 
 // Main
 int main()
 {
     // Declare an array to store Student objects data
     array<Student, ARRAY_SIZE> studentArray;
-    int count = 0;      // Store the total number of Student objects in the array
 
-    // Read the data from the 2 files
-    fileInput(studentArray, "data1.txt", count);
-    //fileInput(studentArray, "data2.txt", count);
+    // Read the data from the file
+    fileInput(studentArray, "data.txt");
 
     // Print the current size
-    cout << "Current size: " << count << endl;
+    cout << "Array size: " << studentArray.size() << endl;
     
     // Display all the Student objects in the array
     displayHeader();
-    displayArray(studentArray, count);
+    displayArray(studentArray);
 
     return 0;
 }
@@ -53,11 +51,14 @@ int main()
         - count: reference to an int tracking how many slots are currently used
     Returns: none
 */
-void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path, int& count)
+void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path)
 {
     // Create a file stream and read the file
     ifstream fin;
     fin.open(path);
+
+    // Declare a count variable to keep track of the array
+    int count = 0;
 
     // Declare a string variable to store the line
     string line;
@@ -122,9 +123,9 @@ void displayHeader()
         - count: number of students currently in the array
     Returns: none
 */
-void displayArray(const array<Student, ARRAY_SIZE>& studentArray, const int count)
+void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
 {
-    for (int i = 0; i < count; i++)
+    for (int i = 0; i < ARRAY_SIZE; i++)
     {
         // Display the fields
         cout << left << setw(NAME_FIELD) << studentArray[i].name;
