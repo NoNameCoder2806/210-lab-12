@@ -24,6 +24,10 @@ void displayHeader();
 
 void displayArray(const array<Student, ARRAY_SIZE>& studentArray);
 
+bool compareGPA(const Student& student1, const Student& student2);
+
+void sortGPA(array<Student, ARRAY_SIZE>& studentArray);
+
 // Main
 int main()
 {
@@ -67,6 +71,11 @@ int main()
     cout << endl;
 
     // Sort the array by gpa
+    sortGPA(studentArray);
+
+    // Display the sorted array
+    displayHeader();
+    displayArray(studentArray);
 
     return 0;
 }
@@ -168,4 +177,32 @@ void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
 
     // Enter a new line
     cout << endl;
+}
+
+/*
+    compareGPA()
+    Compare the GPA of two Student objects.
+    Arguments:
+        - student1: const reference to a Student
+        - student2: const reference to a Student
+    Returns:
+        - true if student1's GPA is greater than student2's GPA (for descending order)
+        - false otherwise
+*/
+bool compareGPA(const Student& student1, const Student& student2)
+{
+    return student1.gpa > student2.gpa;    // Descending order
+}
+
+/*
+    sortGPA()
+    Sort the data of the array in descending order based on the GPA
+    Arguments:
+        - studentArray: const reference to the std::array<Student, ARRAY_SIZE> containing students
+    Returns: none
+*/
+void sortGPA(array<Student, ARRAY_SIZE>& studentArray)
+{
+    // Use the sort() function to sort the array
+    sort(studentArray.begin(), studentArray.end(), compareGPA);
 }
