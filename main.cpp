@@ -13,13 +13,14 @@ using namespace std;
 const int ARRAY_SIZE = 100;
 
 // Function prototypes
-void fileInput(string path);
+void fileInput(array<Student, ARRAY_SIZE> studentArray, string path, int& count);
 
 // Main
 int main()
 {
     // Declare an array to store Student objects data
-    array<Student, ARRAY_SIZE>;
+    array<Student, ARRAY_SIZE> studentArray;
+    int count = 0;      // Store the total number of Student objects in the array
 
     return 0;
 }
@@ -31,7 +32,7 @@ int main()
     Arguments: the path to the data file
     Returns: none
 */
-void fileInput(string path)
+void fileInput(array<Student, ARRAY_SIZE> studentArray, string path, int& count)
 {
     // Create a file stream and read the file
     ifstream fin;
@@ -43,6 +44,9 @@ void fileInput(string path)
     // Iterate through the file and read the data line by line
     while (getline(fin, line))
     {
+        // Create a temporary Student object
+        Student temp;
+
         // Declare 2 variables to store the name and gpa
         string name;
         double gpa;
@@ -61,5 +65,13 @@ void fileInput(string path)
                 break;
             }
         }
+
+        // Assign the values to the temporary Student object
+        temp.name = name;
+        temp.gpa = gpa;
+
+        // Add the object into the array
+        studentArray[count] = temp;
+        count++;      // Increment the count
     }
 }

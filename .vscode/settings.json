@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
-        "array": "cpp"
+        "array": "cpp",
+        "xstring": "cpp"
     }
 }
