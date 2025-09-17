@@ -5,6 +5,8 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include <algorithm>  // for sort(), find()
+#include <numeric>    // for accumulate()
 #include <string>
 #include <array>
 #include "Student.h"
@@ -37,6 +39,18 @@ int main()
     // Display all the Student objects in the array
     displayHeader();
     displayArray(studentArray);
+
+    // Display the first Student object of the array
+    cout << " --- First Student: --- " << endl;
+    cout << "Name: " << studentArray.front().name << endl;
+    cout << "GPA: " << studentArray.front().gpa << endl;
+    cout << endl;
+
+    // Display the last Student object of the array
+    cout << " --- Last Student: --- " << endl;
+    cout << "Name: " << studentArray.back().name << endl; 
+    cout << "GPA: " << studentArray.back().gpa << endl;
+    cout << endl;
 
     return 0;
 }
