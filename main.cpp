@@ -30,6 +30,9 @@ int main()
     // Declare an array to store Student objects data
     array<Student, ARRAY_SIZE> studentArray;
 
+    // Output the address to the console
+    cout << " - Address of the array: " << studentArray.data() << endl;
+
     // Check whether the current array is empty
     cout << " - Empty?: ";
     if (studentArray.empty())
@@ -62,6 +65,8 @@ int main()
     cout << "Name: " << studentArray.back().name << endl; 
     cout << "GPA: " << studentArray.back().gpa << endl;
     cout << endl;
+
+    // Sort the array by gpa
 
     return 0;
 }
@@ -118,7 +123,7 @@ void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path)
         temp.gpa = gpa;
 
         // Add the object into the array
-        studentArray[count] = temp;
+        studentArray.at(count) = temp;
         count++;      // Increment the count
     }
 }
