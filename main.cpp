@@ -106,6 +106,7 @@ int main()
     cout << " - Highest GPA: " << max_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
     cout << " - Lowest GPA: " << min_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
     cout << " - Average GPA: " << accumulate(studentArray.rbegin(), studentArray.rend(), 0.0, addGPA) / studentArray.size() << endl;
+    cout << endl;
 
     // Create 2 empty arrays
     array<Student, SMALL_ARRAY_SIZE> fours;
@@ -164,6 +165,12 @@ void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path)
     // Create a file stream and read the file
     ifstream fin;
     fin.open(path);
+
+    // Exit the function if the file fails to open
+    if (!fin.is_open()) {
+        cerr << "Error: Unable to open file: " << path << endl;
+        return;
+    }
 
     // Declare a count variable to keep track of the array
     int count = 0;
