@@ -133,6 +133,19 @@ int main()
     displayHeader();
     displayArray(twos);
 
+    // Swap the 2 arrays
+    fours.swap(twos);
+    cout << " --- The 2 arrays are swapped! --- " << endl;
+
+    // Display the 2 arrays again
+    cout << "Fours: " << endl;
+    displayHeader();
+    displayArray(fours);
+
+    cout << "Twos: " << endl;
+    displayHeader();
+    displayArray(twos);
+
     return 0;
 }
 
