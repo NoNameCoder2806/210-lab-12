@@ -74,15 +74,13 @@ int main()
     double target3 = 2.75;
     double target4 = 3.0;
 
-    array<double, ARRAY_SIZE>::iterator it;
-
     // Check whether they are in the array or not
     findElement(gpaArray, target1);
     findElement(gpaArray, target2);
     findElement(gpaArray, target3);
     findElement(gpaArray, target4);
 
-    // Find the min, max, and average GPA score of the Student objects
+    // Find the min, max, and average GPA score of the GPA scores
     cout << " - Highest GPA: " << *max_element(gpaArray.begin(), gpaArray.end()) << endl;
     cout << " - Lowest GPA: " << *min_element(gpaArray.begin(), gpaArray.end()) << endl;
     cout << " - Average GPA: " << accumulate(gpaArray.rbegin(), gpaArray.rend(), 0.0) / gpaArray.size() << endl;
@@ -92,7 +90,7 @@ int main()
     array<double, SMALL_ARRAY_SIZE> fours;
     array<double, SMALL_ARRAY_SIZE> twos;
 
-    // Fill the Student objects into the array
+    // Fill the elements into the array
     fours.fill(4.0);
     twos.fill(2.0);
 
@@ -153,6 +151,10 @@ void fileInput(array<double, ARRAY_SIZE>& gpaArray, string path)
         // Add the value into the array
         gpaArray.at(i) = value;
     }
+
+    // Clear and close the file
+    fin.clear();
+    fin.close();
 }
 
 /*
