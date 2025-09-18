@@ -32,6 +32,10 @@ void sortGPA(array<Student, ARRAY_SIZE>& studentArray);
 
 double addGPA(double sum, const Student& student);
 
+void findElement(array<Student, ARRAY_SIZE>& studentArray, double targetGPA);
+
+bool hasGPA(const Student& student, double targetGPA);
+
 // Main
 int main()
 {
@@ -83,6 +87,18 @@ int main()
     // Display the sorted array
     displayHeader();
     displayArray(studentArray);
+
+    // Declare a few GPA scores to search for
+    double target1 = 2.25;
+    double target2 = 2.5;
+    double target3 = 2.75;
+    double target4 = 3.0;
+
+    // Check whether they are in the array or not
+    findElement(studentArray, target1);
+    findElement(studentArray, target2);
+    findElement(studentArray, target3);
+    findElement(studentArray, target4);
 
     // Find the min, max, and average GPA score of the Student objects
     cout << " - Highest GPA: " << max_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
@@ -245,4 +261,31 @@ void sortGPA(array<Student, ARRAY_SIZE>& studentArray)
 double addGPA(double sum, const Student& student)
 {
     return sum + student.gpa;
+}
+
+bool hasGPA(const Student& student, double targetGPA)
+{
+    return student.gpa == targetGPA;    // Check whether the Student's gpa = target
+}
+
+void findElement(array<Student, ARRAY_SIZE>& studentArray, double targetGPA)
+{
+    // Display a message to notify the user of the element being searched
+    cout << "Searching for: " << targetGPA << endl;
+
+    // Declare an iterator to point to the found element
+    array<Student, ARRAY_SIZE>::iterator it;
+    it = find(studentArray.begin(), studentArray.end(), targetGPA);
+    
+    // Check whether the iterator points to an element or not
+    if (it != studentArray.end())
+    {
+        // Displaying a message
+        cout << "Element found! Position: " << it - studentArray.begin() << endl;
+    }
+    else
+    {
+        // Displaying a message
+        cout << "Element not found!" << endl;
+    }
 }
