@@ -1,50 +1,50 @@
-Nina Martinez 2.85
-Wendy Garcia 2.42
-Ethan Lewis 2.44
-Quentin Evans 2.46
-Tina Roberts 2.07
-Fiona Zimmerman 3.78
-Zach Nelson 3.91
-Julia Vargas 3.02
-Bob Evans 2.78
-Victor Owen 2.56
-Ethan Brown 2.02
-Hannah Roberts 2.93
-Ian Brown 3.56
-Uma Young 3.81
-Quentin Harris 3.78
-Michael Smith 2.16
-Uma Young 3.71
-Yvonne Harris 3.31
-Tina Upton 2.88
-Xavier Harris 2.18
-Kevin Perez 3.94
-Oscar Evans 3.18
-Rachel Nelson 3.47
-Charlie Vargas 3.63
-Bob Upton 2.01
-Laura Walker 3.42
-Ethan Clark 2.01
-Uma Harris 2.04
-Charlie Harris 3.18
-Diana Harris 2.48
-Steven Garcia 2.08
-Julia Clark 3.04
-Xavier Garcia 3.0
-Rachel Evans 2.38
-Nina Martinez 3.59
-Diana Vargas 2.38
-Bob Martinez 2.91
-Victor Smith 2.78
-Victor Taylor 3.34
-Uma Young 2.82
-Ian Taylor 2.62
-Paula Upton 3.24
-Oscar Brown 3.19
-Kevin Garcia 2.1
-Steven Jones 2.84
-George Anderson 3.02
-Quentin Davis 3.26
-Victor Young 2.14
-Uma Vargas 2.53
-Diana Smith 2.54
+2.85
+2.42
+2.44
+2.46
+2.07
+3.78
+3.91
+3.02
+2.78
+2.56
+2.02
+2.93
+3.56
+3.81
+3.78
+2.16
+3.71
+3.31
+2.88
+2.18
+3.94
+3.18
+3.47
+3.63
+2.01
+3.42
+2.01
+2.04
+3.18
+2.48
+2.08
+3.04
+3.00
+2.38
+3.59
+2.38
+2.91
+2.78
+3.34
+2.82
+2.62
+3.24
+3.19
+2.10
+2.84
+3.02
+3.26
+2.14
+2.53
+2.54

@@ -8,6 +8,7 @@
         "xlocmon": "cpp",
         "iostream": "cpp",
         "xutility": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "algorithm": "cpp"
     }
 }
