@@ -14,6 +14,7 @@ using namespace std;
 
 // Constants
 const int ARRAY_SIZE = 50;
+const int SMALL_ARRAY_SIZE = 5;
 const int NAME_FIELD = 30;
 const int GPA_FIELD = 5;
 
@@ -22,7 +23,8 @@ void fileInput(array<Student, ARRAY_SIZE>& studentArray, string path);
 
 void displayHeader();
 
-void displayArray(const array<Student, ARRAY_SIZE>& studentArray);
+template <size_t N>
+void displayArray(const array<Student, N>& studentArray);
 
 bool ascCompareGPA(const Student& student1, const Student& student2);
 
@@ -32,9 +34,9 @@ void sortGPA(array<Student, ARRAY_SIZE>& studentArray);
 
 double addGPA(double sum, const Student& student);
 
-void findElement(array<Student, ARRAY_SIZE>& studentArray, double targetGPA);
-
 bool hasGPA(const Student& student, double targetGPA);
+
+void findElement(array<Student, ARRAY_SIZE>& studentArray, double targetGPA);
 
 // Main
 int main()
@@ -103,7 +105,33 @@ int main()
     // Find the min, max, and average GPA score of the Student objects
     cout << " - Highest GPA: " << max_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
     cout << " - Lowest GPA: " << min_element(studentArray.begin(), studentArray.end(), ascCompareGPA)->gpa << endl;
-    cout << " - Average GPA: " << accumulate(studentArray.begin(), studentArray.end(), 0.0, addGPA) / studentArray.size() << endl;
+    cout << " - Average GPA: " << accumulate(studentArray.rbegin(), studentArray.rend(), 0.0, addGPA) / studentArray.size() << endl;
+
+    // Create 2 empty arrays
+    array<Student, SMALL_ARRAY_SIZE> fours;
+    array<Student, SMALL_ARRAY_SIZE> twos;
+
+    // Create 2 Student objects to fill into the array
+    Student student1;      // First Student object
+    student1.name = "Perfect GPA";
+    student1.gpa = 4.0;
+
+    Student student2;      // Second Student object
+    student2.name = "Low GPA";
+    student2.gpa = 2.0;
+
+    // Fill the Student objects into the array
+    fours.fill(student1);
+    twos.fill(student2);
+
+    // Display the 2 arrays
+    cout << "Fours: " << endl;
+    displayHeader();
+    displayArray(fours);
+
+    cout << "Twos: " << endl;
+    displayHeader();
+    displayArray(twos);
 
     return 0;
 }
@@ -190,10 +218,11 @@ void displayHeader()
         - count: number of students currently in the array
     Returns: none
 */
-void displayArray(const array<Student, ARRAY_SIZE>& studentArray)
+template <size_t N>
+void displayArray(const array<Student, N>& studentArray)
 {
     // Iterate through the array
-    for (int i = 0; i < ARRAY_SIZE; i++)
+    for (int i = 0; i < N; i++)
     {
         // Display the fields
         cout << left << setw(NAME_FIELD) << studentArray[i].name;
