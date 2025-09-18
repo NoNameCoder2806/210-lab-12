@@ -6,6 +6,7 @@
         "fstream": "cpp",
         "xlocale": "cpp",
         "xlocmon": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "xutility": "cpp"
     }
 }

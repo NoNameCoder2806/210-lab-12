@@ -263,19 +263,37 @@ double addGPA(double sum, const Student& student)
     return sum + student.gpa;
 }
 
+/*
+    hasGPA()
+    Helper function to check if a Student's GPA matches a target value.
+    Arguments:
+        - student: const reference to a Student object to check
+        - targetGPA: the GPA value to compare against
+    Returns:
+        - true if the Student's GPA equals the target, false otherwise
+*/
 bool hasGPA(const Student& student, double targetGPA)
 {
     return student.gpa == targetGPA;    // Check whether the Student's gpa = target
 }
 
+/*
+    findElement()
+    Search the student array for a Student with a specific GPA.
+    Arguments:
+        - studentArray: reference to the std::array<Student, ARRAY_SIZE> containing the students
+        - targetGPA: the GPA value to search for
+    Returns:
+        - none (prints search results to the console)
+*/
 void findElement(array<Student, ARRAY_SIZE>& studentArray, double targetGPA)
 {
     // Display a message to notify the user of the element being searched
-    cout << "Searching for: " << targetGPA << endl;
+    cout << " --- Searching for: " << targetGPA << " --- " << endl;
 
     // Declare an iterator to point to the found element
     array<Student, ARRAY_SIZE>::iterator it;
-    it = find(studentArray.begin(), studentArray.end(), targetGPA);
+    it = find_if(studentArray.begin(), studentArray.end(), [targetGPA](const Student& s) { return hasGPA(s, targetGPA); });
     
     // Check whether the iterator points to an element or not
     if (it != studentArray.end())
@@ -288,4 +306,7 @@ void findElement(array<Student, ARRAY_SIZE>& studentArray, double targetGPA)
         // Displaying a message
         cout << "Element not found!" << endl;
     }
+
+    // Enter a new line
+    cout << endl;
 }
